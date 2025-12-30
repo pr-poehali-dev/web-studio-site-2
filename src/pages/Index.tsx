@@ -196,8 +196,15 @@ const Index = () => {
         )}
       </nav>
 
-      <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-4">
-        <div className="container mx-auto text-center animate-fade-in">
+      <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-4 relative overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://cdn.poehali.dev/projects/71a0430e-a911-446d-bfd6-67f5d20638f8/files/9d30dbd8-2b68-4166-9880-bbf92850abd4.jpg" 
+            alt="Hero background" 
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="container mx-auto text-center animate-fade-in relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             Создаём дизайн,
             <br />
@@ -249,8 +256,15 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="services" className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto">
+      <section id="services" className="py-20 px-4 bg-muted/30 relative overflow-hidden">
+        <div className="absolute top-10 right-10 w-64 h-64 opacity-10 z-0">
+          <img 
+            src="https://cdn.poehali.dev/projects/71a0430e-a911-446d-bfd6-67f5d20638f8/files/382e0a1c-1b92-4e1f-b00c-7fe7056e413a.jpg" 
+            alt="Design mockups" 
+            className="w-full h-full object-cover rounded-3xl"
+          />
+        </div>
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -313,8 +327,15 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="team" className="py-20 px-4 bg-muted/30">
-        <div className="container mx-auto">
+      <section id="team" className="py-20 px-4 bg-muted/30 relative overflow-hidden">
+        <div className="absolute bottom-10 left-10 w-72 h-72 opacity-10 z-0">
+          <img 
+            src="https://cdn.poehali.dev/projects/71a0430e-a911-446d-bfd6-67f5d20638f8/files/e9cd46a8-2938-4984-86a0-6fcda3a3ebfa.jpg" 
+            alt="Team workspace" 
+            className="w-full h-full object-cover rounded-3xl"
+          />
+        </div>
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наша команда</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -330,8 +351,12 @@ const Index = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <CardContent className="p-6">
-                  <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary via-secondary to-accent flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <Icon name={member.icon} size={40} className="text-white" />
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary via-secondary to-accent mx-auto mb-4 group-hover:scale-110 transition-transform overflow-hidden">
+                    <img 
+                      src="https://api.dicebear.com/7.x/avataaars/svg?seed=${member.name}" 
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                   <p className="text-muted-foreground">{member.role}</p>
@@ -358,8 +383,13 @@ const Index = () => {
                 className="group hover:border-primary transition-all duration-300 cursor-pointer animate-fade-in bg-card/50 backdrop-blur"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
+                <div className="h-48 relative overflow-hidden">
+                  <img 
+                    src={`https://source.unsplash.com/800x600/?web-design,ui-ux,${post.category}`}
+                    alt={post.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <span className="px-3 py-1 bg-primary text-primary-foreground text-xs font-medium rounded-full">
                       {post.category}
